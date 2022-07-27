@@ -4,8 +4,8 @@
 @use "./components/Sidebar/_sidebar.scss";
 
 @font-face {
-  font-family: NeutraBold;
-  src: url("http://localhost:3000/fonts/Neutra2Display-Bold.woff");
+  font-family: "NeutraBold";
+  src: local("NeutraBold"), url(./fonts/Neutra2Display-Bold.woff) format("woff");
 }
 
 .InteractiveMapApp {

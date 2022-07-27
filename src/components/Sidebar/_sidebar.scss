@@ -31,6 +31,14 @@
       text-shadow: #20285b 0px 0px 20px;
       line-height: 100%;
     }
+    .logo {
+      max-width: 60%;
+
+      margin-top: 40px;
+      @media all and (max-width: 1000px) {
+        max-width: 40%;
+      }
+    }
     @media all and (max-width: 1000px) {
       // display: none;
       width: 0vw;
