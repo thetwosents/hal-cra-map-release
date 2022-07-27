@@ -1,0 +1,62 @@
+.InteractiveMapApp {
+  &.zoom-200,
+  &.zoom-175,
+  &.zoom-150 {
+    h1 {
+      font-size: 14px !important;
+    }
+    p {
+      font-size: 9px;
+    }
+  }
+  #sidebar {
+    overflow: hidden;
+    position: absolute;
+    pointer-events: none;
+    left: 0px;
+    top: 0px;
+    width: 800px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(
+      331deg,
+      rgba(2, 0, 36, 0) 60%,
+      rgba(32, 40, 91, 1) 96%
+    );
+    height: 70vh;
+    z-index: 3;
+    h1 {
+      margin-left: 20px;
+      margin-top: 40px;
+      font-size: 4.4rem;
+      text-shadow: #20285b 0px 0px 20px;
+      line-height: 100%;
+    }
+    @media all and (max-width: 1000px) {
+      // display: none;
+      width: 0vw;
+      &.active {
+        width: 100vw;
+        padding: 20px;
+        z-index: 4;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+    }
+  }
+  #sidebarControl {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    background: #20285b;
+    padding: 8px;
+    @media all and (max-width: 1000px) {
+      display: block;
+    }
+    p {
+      margin: 0px;
+    }
+  }
+}

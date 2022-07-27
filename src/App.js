@@ -1,23 +1,75 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState, useRef } from "react";
+import Map from "./components/Map";
+import Sidebar from "./components/Sidebar";
+import Ships from "./components/Ships";
+import ships from "./components/Ships/ships.json";
 
-function App() {
+import "./App.scss";
+import "antd/dist/antd.css";
+import "mapbox-gl/dist/mapbox-gl.css";
+
+function App({ mapboxAccessKey }) {
+  const mapContainer = useRef(null);
+  const map = useRef(null);
+  const [selected, setSelected] = useState(0);
+  const [loaded, setLoaded] = useState(false);
+  const [data, setData] = useState(ships);
+
+  if (!mapboxAccessKey) {
+    throw new Error("Missing mapboxAccessKey");
+  }
+
+  const [browserZoom, setBrowserZoom] = useState(1);
+  useEffect(() => {
+    if (window) {
+      setBrowserZoom(Math.round((window.outerWidth / window.innerWidth) * 100));
+
+      window.addEventListener("resize", () => {
+        setBrowserZoom(
+          Math.round((window.outerWidth / window.innerWidth) * 100)
+        );
+      });
+    }
+  });
+
+  useEffect(() => {
+    if (loaded) {
+      if (selected < 0) {
+        setSelected(data.length - 1);
+
+        map.current.flyTo({
+          center: [data[data.length - 1].lng, data[data.length - 1].lat],
+          zoom: 4,
+        });
+      } else if (selected > data.length - 1) {
+        setSelected(0);
+        map.current.flyTo({
+          center: [data[0].lng, data[0].lat],
+          zoom: 4,
+        });
+      } else {
+        map.current.flyTo({
+          center: [data[selected].lng, data[selected].lat],
+          zoom: 4,
+        });
+      }
+    } else {
+      setLoaded(true);
+    }
+  }, [selected]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`InteractiveMapApp zoom-${browserZoom}`}>
+      <Sidebar />
+      <Map
+        mapContainer={mapContainer}
+        map={map}
+        data={data}
+        mapboxAccessKey={mapboxAccessKey}
+        selected={selected}
+        setSelected={setSelected}
+      />
+      <Ships setSelected={setSelected} selected={selected} data={data} />
     </div>
   );
 }

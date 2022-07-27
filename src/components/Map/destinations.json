@@ -1,0 +1,47 @@
+[
+  {
+    "label": "Vancouver",
+    "lng": -123.170834,
+    "lat": 49.1162,
+    "color": "#2A7665",
+    "textColor": "#ffffff",
+    "left": "65px",
+    "top": "-30px"
+  },
+  {
+    "label": "Seattle",
+    "lng": -122.3321,
+    "lat": 47.6062,
+    "color": "#f2be58",
+    "textColor": "#20295b",
+    "left": "70px",
+    "top": "0px"
+  },
+  {
+    "label": "San Diego",
+    "lng": -117.1611,
+    "lat": 32.7157,
+    "color": "#63cab9",
+    "textColor": "#20285b",
+    "left": "60px",
+    "top": "-20px"
+  },
+  {
+    "label": "Ft. Lauderdale",
+    "lng": -80.1373,
+    "lat": 26.1224,
+    "color": "#B8CCEA",
+    "textColor": "#20285b",
+    "left": "0px",
+    "top": "-30px"
+  },
+  {
+    "label": "Boston",
+    "lng": -71.0589,
+    "lat": 42.3601,
+    "color": "rgb(219, 54, 51)",
+    "textColor": "#ffffff",
+    "left": "-65px",
+    "top": "0px"
+  }
+]

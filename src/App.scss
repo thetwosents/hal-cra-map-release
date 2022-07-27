@@ -1,0 +1,52 @@
+// Load component CSS
+@use "./components/Map/_map.scss";
+@use "./components/Ships/_ships.scss";
+@use "./components/Sidebar/_sidebar.scss";
+
+@font-face {
+  font-family: NeutraBold;
+  src: url("http://localhost:3000/fonts/Neutra2Display-Bold.woff");
+}
+
+.InteractiveMapApp {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 0;
+  margin: 0px;
+  padding: 0px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  img {
+    max-width: 100%;
+  }
+
+  * {
+    font-family: NeutraBold !important;
+  }
+
+  b {
+    font-family: NeutraBold !important;
+  }
+
+  h1 {
+    color: #fff !important;
+    text-transform: uppercase;
+    font-family: NeutraBold;
+    font-size: 1.6rem;
+  }
+
+  p {
+    color: #ffffff !important;
+    font-size: 1rem;
+  }
+
+  .content {
+    p {
+      cursor: pointer;
+    }
+  }
+}

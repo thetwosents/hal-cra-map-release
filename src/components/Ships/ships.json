@@ -1,0 +1,75 @@
+[
+  {
+    "label": "From Vancouver",
+    "lng": -123.170834,
+    "lat": 49.1162,
+    "color": "#2A7665",
+    "textColor": "#ffffff",
+    "alt": "A photo of a bear",
+    "image": "https://farm1.static.flickr.com/700/22183678191_90c40b978a_c.jpg",
+    "items": [
+      "Alaska",
+      "Hawaii, Tahiti and South Pacific",
+      "Pacific Coast",
+      "Panama Canal"
+    ]
+  },
+  {
+    "label": "From Seattle",
+    "color": "#FEBD5B",
+    "lng": -122.3321,
+    "lat": 47.6062,
+    "textColor": "#20295b",
+    "alt": "A photo of the Seattle space needle",
+    "image": "https://images.seattletimes.com/wp-content/uploads/2021/12/12292021_snow-07_155150.jpg?d=1560x1013",
+    "items": [
+      "Alaska",
+      "Panama Canal"
+    ]
+  },
+  {
+    "label": "From San Diego",
+    "lng": -117.1611,
+    "lat": 32.7157,
+    "color": "#4AC5AF",
+    "textColor": "#20285b",
+    "alt": "A photo of a San Diego port",
+    "image": "https://lajollamom.com/wp-content/uploads/2018/05/la-jolla-cove-guide.jpg",
+    "items": [
+      "Hawaii, Tahiti and South Pacific",
+      "Mexico",
+      "Pacific Coast",
+      "Panama Canal"
+    ]
+  },
+  {
+    "label": "From Ft. Lauderdale",
+    "color": "#B8CCEA",
+    "lng": -80.1373,
+    "lat": 26.1224,
+    "textColor": "#20285b",
+    "alt": "A photo of a flamingo",
+    "image": "https://images.unsplash.com/photo-1629394661462-13ea8fe156ef?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&w=1000&q=80",
+    "items": [
+      "Caribbean",
+      "Panama Canal & South America",
+      "Canada & New England",
+      "Grand South America & Antarctica Voyage",
+      "Grand Africa Voyage",
+      "Grand World Voyage"
+    ]
+  },
+  {
+    "label": "From Boston",
+    "lng": -71.0589,
+    "lat": 42.3601,
+    "alt": "A photo of the boston sunset of the skyline",
+    "color": "rgb(219, 54, 51)",
+    "textColor": "#ffffff",
+    "image": "https://media.istockphoto.com/photos/boston-skyline-at-sunset-picture-id1086350060?k=20&m=1086350060&s=612x612&w=0&h=aMrqXPLe-UaJ_HF_nejwJvRrWz5BXc8wkOFv19eHj8M=",
+    "items": [
+      "Canada & New England",
+      "Iceland & Greenland"
+    ]
+  }
+]

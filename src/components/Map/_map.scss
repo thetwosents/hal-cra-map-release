@@ -1,0 +1,115 @@
+.InteractiveMapApp {
+  &.zoom-200 {
+    .map-container {
+      height: 90vh;
+    }
+  }
+  .map-container {
+    height: 100vh;
+    width: 100vw;
+    margin-left: 0px;
+    position: relative;
+
+    @media all and (max-width: 1000px) {
+      width: 100vw;
+      margin: 0 auto;
+      height: 90vh;
+    }
+  }
+
+  .mapboxgl-marker {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: lightblue;
+    
+  }
+
+  .marker-label {
+    // color: #Fff;
+    text-align: center;
+    width: 100%;
+    display: block;
+    line-height: 32px;
+    font-family: NeutraBold;
+    font-size: .85rem;
+    cursor: pointer;
+    &:hover {
+      filter: brightness(85%);
+    }
+  }
+
+  .marker {
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    -webkit-transition: all .5s ease-in-out;
+    box-shadow: 0 1px 25px rgb(0 0 0 / 8%);
+    -webkit-box-shadow: 0 1px 25px rgb(0 0 0 / 8%);
+    border: 3px solid #fff;
+    opacity: 0 !important;
+  }
+
+  .marker p {
+    position: absolute;
+    bottom: 30px;
+    font-size: .5rem;
+    font-family: NeutraBold;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    width: 140px;
+    display: block;
+    right: 44px;
+    text-align: center;
+    color: #fff;
+    background: #20285b;
+    /* border: 1px solid #f3bf59; */
+  }
+
+  .marker.show {
+    opacity: 1 !important;
+  }
+
+  .marker.active {
+    width: 75px;
+    height: 75px;
+    border-color: #fff;
+  }
+
+  .marker.active p {
+    display: none;
+  }
+
+  .label {
+    font-size: 1rem;
+    margin-bottom: 0px;
+  }
+
+  .mapboxgl-popup {
+    max-width: 200px;
+    box-shadow: 0 1px 25px rgb(0 0 0 / 8%);
+    -webkit-box-shadow: 0 1px 25px rgb(0 0 0 / 8%);
+  }
+
+  .popup-content p {
+    margin-bottom: 6px;
+  }
+
+  .popup-content {
+    padding: 8px 8px;
+  }
+
+  .label {
+    font-size: 1rem;
+    margin-bottom: 0px;
+  }
+
+  #destinations {
+    padding: 20px;
+    color: #fff;
+  }
+}

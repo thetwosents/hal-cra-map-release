@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import App from './App'; // The component defined in this project
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Get the mapbox access key from the root element data-mapbox-access-key attribute
+// Get data-mapbox-access-key value
+const mapboxAccessKey = document.getElementById('root').getAttribute('data-mapbox-access-key');
+
 root.render(
   <React.StrictMode>
-    <App />
+    <App 
+      mapboxAccessKey={mapboxAccessKey} 
+    />
   </React.StrictMode>
 );
 
