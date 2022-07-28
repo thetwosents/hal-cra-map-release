@@ -12,7 +12,7 @@ export const Map = ({
 }) => {
   let mapPreferences = {
     center: [-104, 30],
-    zoom: 2.2,
+    zoom: 2.8,
     pitch: 5,
   };
 

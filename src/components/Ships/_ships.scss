@@ -81,6 +81,9 @@
           bottom: 150px;
           width: 100%;
           position: absolute;
+          img {
+            width: 64px;
+          }
         }
         .ship__details {
           overflow: visible !important;
@@ -135,9 +138,11 @@
           color: #fff;
           text-align: left;
           padding-left: 20px !important;
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           font-family: NeutraBold;
           transition: 0.5s all ease-in-out;
+          display: flex;
+          align-items: center;
           -webkit-transition: 0.5s all ease-in-out;
           &:hover {
             cursor: pointer;
@@ -165,7 +170,7 @@
             }
 
             li {
-              font-size: 1rem;
+              font-size: 1.2rem;
             }
           }
         }

@@ -15,11 +15,11 @@
     pointer-events: none;
     left: 0px;
     top: 0px;
-    width: 800px;
+    width: 900px;
     background: rgb(2, 0, 36);
     background: linear-gradient(
       331deg,
-      rgba(2, 0, 36, 0) 60%,
+      rgba(2, 0, 36, 0) 50%,
       rgba(32, 40, 91, 1) 96%
     );
     height: 70vh;
@@ -33,7 +33,6 @@
     }
     .logo {
       max-width: 60%;
-
       margin-top: 40px;
       @media all and (max-width: 1000px) {
         max-width: 40%;

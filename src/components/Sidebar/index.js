@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Row, Col } from "antd";
-import logo from "./logo.svg";
 
 export const Sidebar = () => {
   const [active, setActive] = useState(true);
@@ -15,7 +14,7 @@ export const Sidebar = () => {
         <Row align={"top"} style={{ height: "100vh", padding: "2vw" }}>
           <Col>
             <img
-              src={logo}
+              src={"https://svgshare.com/i/jcc.svg"}
               className="logo"
               alt="See the world campaign logo"
             />
