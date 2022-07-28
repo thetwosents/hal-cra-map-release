@@ -27,9 +27,9 @@
     &.white-bg {
       left: 60px;
       top: 60px;
-      width: 600px;
-      height: 320px;
-      background: rgba(255, 255, 255, 0.5);
+      width: 500px;
+      height: 260px;
+      background: rgba(255, 255, 255, 0.9);
       padding: 20px;
       text-align: center;
       display: flex;
@@ -49,7 +49,7 @@
       }
       &.is-zoomed {
         width: 400px;
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.9);
         height: 240px;
       }
     }
