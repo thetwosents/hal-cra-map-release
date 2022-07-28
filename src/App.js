@@ -32,6 +32,8 @@ function App({ mapboxAccessKey }) {
     }
   });
 
+  let zoom = 4.5;
+
   useEffect(() => {
     if (loaded) {
       if (selected < 0) {
@@ -39,18 +41,18 @@ function App({ mapboxAccessKey }) {
 
         map.current.flyTo({
           center: [data[data.length - 1].lng, data[data.length - 1].lat],
-          zoom: 4,
+          zoom: zoom,
         });
       } else if (selected > data.length - 1) {
         setSelected(0);
         map.current.flyTo({
           center: [data[0].lng, data[0].lat],
-          zoom: 4,
+          zoom: zoom,
         });
       } else {
         map.current.flyTo({
           center: [data[selected].lng, data[selected].lat],
-          zoom: 4,
+          zoom: zoom,
         });
       }
     } else {
@@ -60,7 +62,7 @@ function App({ mapboxAccessKey }) {
 
   return (
     <div className={`InteractiveMapApp zoom-${browserZoom}`}>
-      <Sidebar />
+      <Sidebar map={map} />
       <Map
         mapContainer={mapContainer}
         map={map}
