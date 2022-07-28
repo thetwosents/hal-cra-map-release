@@ -5,15 +5,32 @@
     .ships {
       position: absolute;
       bottom: 0vh;
-      max-width: 50vw;
-      left: 25vw;
+      max-width: 30vw;
+      left: 35vw;
       top: auto;
       margin: 0px;
       overflow: visible;
       .grid-item {
+        &.active {
+          .ship__title {
+            top: -228px;
+            bottom: auto;
+          }
+          .ship__details {
+            height: 120px !important;
+            bottom: 60px !important;
+            li {
+              line-height: 1rem !important;
+            }
+          }
+        }
         .ship {
           .ship__title {
             font-size: 12px;
+            img {
+              width: 32px;
+              height: 32px;
+            }
           }
           .ship__details {
             font-size: 10px;
@@ -56,7 +73,7 @@
       margin: 0px auto 0px;
       width: 90vw;
       position: absolute;
-      bottom: 20px;
+      bottom: 20vh;
       left: 0px;
       right: 0px;
       top: 90vh;
@@ -81,6 +98,10 @@
           bottom: 150px;
           width: 100%;
           position: absolute;
+          text-align: left !important;
+          @media all and (max-width: 1000px) {
+            bottom: 180px;
+          }
           img {
             width: 64px;
           }
@@ -89,6 +110,14 @@
           overflow: visible !important;
           padding: 20px 0px;
           height: 160px !important;
+          @media all and (max-width: 1000px) {
+            bottom: 30px !important;
+            font-size: 1rem;
+            line-height: 1.4rem;
+            li {
+              margin-bottom: 4px;
+            }
+          }
         }
       }
 
@@ -100,24 +129,31 @@
 
         .previous-ship {
           position: absolute;
-          top: 0px;
+          top: -300px;
           left: 0px;
           z-index: 9;
-          opacity: 0.5;
+          opacity: 1;
+          background: rgba(32, 40, 91, 1) 96%;
+          color: #fff;
           display: none;
+          border-radius: 50%;
           @media all and (max-width: 1000px) {
             display: block;
           }
         }
         .next-ship {
           position: absolute;
-          top: 0px;
+          top: -300px;
           right: 0px;
           z-index: 9;
-          opacity: 0.5;
+          opacity: 1;
+          background: rgba(32, 40, 91, 1) 96%;
+          color: #fff;
+          border-radius: 50%;
+          padding: 0px;
           display: none;
           @media all and (max-width: 1000px) {
-            display: block;
+            display: inline-block;
           }
         }
         .ship__image {
@@ -166,7 +202,7 @@
               columns: 2;
               -webkit-columns: 2;
               -moz-columns: 2;
-              padding-left: 20px;
+              padding-left: 30px;
             }
 
             li {

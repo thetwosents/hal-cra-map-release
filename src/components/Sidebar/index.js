@@ -5,6 +5,7 @@ import { Row, Col } from "antd";
 export const Sidebar = ({ map }) => {
   const [active, setActive] = useState(true);
   const [isZoomed, setIsZoomed] = useState(false);
+  const [placement, setPlacement] = useState("left");
 
   // Check the zoom level on the map to make the logo smaller on zoom in
   useEffect(() => {
@@ -26,9 +27,9 @@ export const Sidebar = ({ map }) => {
       <div
         id="sidebar"
         tabIndex={1}
-        className={`print-ad white-bg ${isZoomed ? "is-zoomed" : ""} ${
-          active ? "active" : ""
-        }`}
+        className={`print-ad white-bg ${
+          isZoomed ? "is-zoomed" : ""
+        } ${placement} ${active ? "active" : ""}`}
       >
         <img src={Logo} className="logo" alt="See the world campaign logo" />
       </div>
