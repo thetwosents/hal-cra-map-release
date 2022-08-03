@@ -39,12 +39,13 @@
       left: 60px;
       top: 60px;
       width: 500px;
-      height: 260px;
+      height: auto;
       background: rgba(255, 255, 255, 0.9);
       padding: 20px;
       text-align: center;
       display: flex;
       align-items: center;
+      flex-direction: column;
       border-radius: 5px;
       box-shadow: 0px 0px 40px 0px rgba(17, 22, 49, 0.5);
       margin-bottom: 20px;
@@ -74,7 +75,7 @@
       }
       .logo {
         max-width: 90%;
-        margin: 0 auto;
+        margin: 10px auto 0px;
         width: 90%;
         transition: all 0.2s ease-in-out;
         -webkit-transition: all 0.2s ease-in-out;
@@ -86,7 +87,7 @@
       &.is-zoomed {
         width: 400px;
         background: rgba(255, 255, 255, 0.9);
-        height: 240px;
+        height: auto;
         @media all and (max-width: 900px) {
           width: 70vw;
           height: 100px;
@@ -94,6 +95,13 @@
           top: 20px;
         }
       }
+    }
+    .logo-text {
+      font-size: 16px;
+      font-weight: bold;
+      color: #20285b !important;
+      line-height: 1.4;
+      margin: 20px auto 0px;
     }
     h1 {
       margin-left: 20px;

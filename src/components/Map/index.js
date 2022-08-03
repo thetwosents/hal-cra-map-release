@@ -2,6 +2,12 @@ import React, { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import data from "./see-the-world.json";
 import destinations from "./destinations.json";
+import Arrow1 from "./2A7665.png";
+import Arrow2 from "./DB3633.png";
+import Arrow3 from "./4AC5AF.png";
+import Arrow4 from "./FEBD5B.png";
+import Arrow5 from "./FF7F32.png";
+import Arrow6 from "./B8CCEA.png";
 
 export const Map = ({
   mapboxAccessKey,
@@ -54,6 +60,9 @@ export const Map = ({
 
       // Add routes
       addLine(map.current, "points", data, "routes", "#2A7665");
+
+      // Add ending arrows
+      addEndingArrows(map.current);
 
       // Add markers
       destinations.map((dest, i) => {
@@ -131,6 +140,124 @@ const addLine = (map, id, data, newId) => {
       "line-opacity": 0.9,
     },
   });
+
+  addArrowToLine(map, newId);
+};
+
+const addArrowToLine = (map, newId) => {
+  map.loadImage(Arrow1, (err, image) => {
+    if (err) throw err;
+    map.addImage("#2A7665", image);
+    map.addLayer({
+      id: "#2A7665",
+      type: "symbol",
+      source: newId, // reference the data source
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": ["get", "color"],
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+    });
+  });
+
+  map.loadImage(Arrow2, (err, image) => {
+    if (err) throw err;
+    map.addImage("#DB3633", image);
+    map.addLayer({
+      id: "#DB3633",
+      type: "symbol",
+      source: newId, // reference the data source
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": ["get", "color"],
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+    });
+  });
+
+  map.loadImage(Arrow3, (err, image) => {
+    if (err) throw err;
+    map.addImage("#4AC5AF", image);
+    map.addLayer({
+      id: "#4AC5AF",
+      type: "symbol",
+      source: newId, // reference the data source
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": ["get", "color"],
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+    });
+  });
+
+  map.loadImage(Arrow4, (err, image) => {
+    if (err) throw err;
+    map.addImage("#FEBD5B", image);
+    map.addLayer({
+      id: "#FEBD5B",
+      type: "symbol",
+      source: newId, // reference the data source
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": ["get", "color"],
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+    });
+  });
+
+  map.loadImage(Arrow5, (err, image) => {
+    if (err) throw err;
+    map.addImage("#FF7F32", image);
+    map.addLayer({
+      id: "#FF7F32",
+      type: "symbol",
+      source: newId, // reference the data source
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": ["get", "color"],
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+    });
+  });
+
+  map.loadImage(Arrow6, (err, image) => {
+    if (err) throw err;
+    map.addImage("#B8CCEA", image);
+    map.addLayer({
+      id: "#B8CCEA",
+      type: "symbol",
+      source: newId, // reference the data source
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": ["get", "color"],
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+    });
+  });
 };
 
 const addMarker = (
@@ -190,5 +317,48 @@ const addMarker = (
   });
   return marker;
 };
+
+function addEndingArrows(map) {
+  data.features.forEach((feature, index) => {
+    let color = feature.properties.color;
+    let lastPoint =
+      feature.geometry.coordinates[feature.geometry.coordinates.length - 1];
+
+    map.addSource(`${index}`, {
+      type: "geojson",
+      data: {
+        type: "FeatureCollection",
+        features: [
+          {
+            type: "Feature",
+            properties: {},
+            geometry: {
+              type: "Point",
+              coordinates: lastPoint,
+            },
+          },
+        ],
+      },
+    });
+
+    map.addLayer({
+      id: `endingArrow${index}`,
+      type: "symbol",
+      source: `${index}`,
+      layout: {
+        "symbol-placement": "line",
+        "symbol-spacing": 2,
+        "icon-allow-overlap": true,
+        // 'icon-ignore-placement': true,
+        "icon-image": `${color}`,
+        "icon-size": 0.085,
+        visibility: "visible",
+      },
+      paint: {
+        "icon-opacity": 0.8,
+      },
+    });
+  });
+}
 
 export default Map;
