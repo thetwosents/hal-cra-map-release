@@ -95,7 +95,7 @@ const ShipItem = ({ item, index, selected, setSelected }) => {
                 return (
                   <li key={i}>
                     <span className="label">{detail.label}</span>
-                    <span className="durations">{detail.text}</span>
+                    {/* <span className="durations">{detail.text}</span> */}
                   </li>
                 );
               })}
