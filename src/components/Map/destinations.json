@@ -12,7 +12,7 @@
     "label": "Seattle",
     "lng": -122.3321,
     "lat": 47.6062,
-    "color": "#f2be58",
+    "color": "#FEBD5B",
     "textColor": "#20295b",
     "left": "70px",
     "top": "0px"
@@ -21,7 +21,7 @@
     "label": "San Diego",
     "lng": -117.1611,
     "lat": 32.7157,
-    "color": "#63cab9",
+    "color": "#4AC5Af",
     "textColor": "#20285b",
     "left": "60px",
     "top": "-20px"
@@ -39,7 +39,7 @@
     "label": "Boston",
     "lng": -71.0589,
     "lat": 42.3601,
-    "color": "rgb(219, 54, 51)",
+    "color": "#DB3633",
     "textColor": "#ffffff",
     "left": "-65px",
     "top": "0px"

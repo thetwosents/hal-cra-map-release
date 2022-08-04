@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
 import data from "./see-the-world.json";
 import destinations from "./destinations.json";
+import * as turf from "@turf/turf";
 import Arrow1 from "./2A7665.png";
 import Arrow2 from "./DB3633.png";
 import Arrow3 from "./4AC5AF.png";
@@ -46,6 +47,8 @@ export const Map = ({
       minZoom: 2,
       pitch: pitch,
     });
+
+    map.current.scrollZoom.disable();
 
     map.current.on("load", () => {
       // Disable tabindex from mapbox to control keyboard navigation
@@ -105,6 +108,14 @@ export const Map = ({
           }
         }
       });
+
+      // If a user clicks the body
+      document.body.addEventListener("click", (e) => {
+        // The clicked element is not a marker
+        if (!e.target.classList.contains("marker-label-container")) {
+          console.log("No marker clicked");
+        }
+      });
     });
   }, []);
   return (
@@ -136,7 +147,7 @@ const addLine = (map, id, data, newId) => {
     },
     paint: {
       "line-color": ["get", "color"],
-      "line-width": 4,
+      "line-width": 3,
       "line-opacity": 0.9,
     },
   });
@@ -319,46 +330,62 @@ const addMarker = (
 };
 
 function addEndingArrows(map) {
-  data.features.forEach((feature, index) => {
-    let color = feature.properties.color;
-    let lastPoint =
-      feature.geometry.coordinates[feature.geometry.coordinates.length - 1];
+  if (data.features.length > 0) {
+    console.log(data.features);
+    data.features.forEach((feature, index) => {
+      let color = feature.properties.color;
+      let lastPoint =
+        feature.geometry.coordinates[feature.geometry.coordinates.length - 1];
+      let secondToLastPoint =
+        feature.geometry.coordinates[feature.geometry.coordinates.length - 2];
 
-    map.addSource(`${index}`, {
-      type: "geojson",
-      data: {
-        type: "FeatureCollection",
-        features: [
-          {
-            type: "Feature",
-            properties: {},
-            geometry: {
-              type: "Point",
-              coordinates: lastPoint,
+      // Calculate the bearing between the last point and the second to last point
+      let bearing = turf.bearing(
+        turf.point([secondToLastPoint[0], secondToLastPoint[1]]),
+        turf.point([lastPoint[0], lastPoint[1]])
+      );
+
+      map.addSource(`${index}`, {
+        type: "geojson",
+        data: {
+          type: "FeatureCollection",
+          features: [
+            {
+              type: "Feature",
+              properties: {},
+              geometry: {
+                type: "LineString",
+                coordinates: [lastPoint, secondToLastPoint],
+              },
             },
-          },
-        ],
-      },
-    });
+          ],
+        },
+      });
 
-    map.addLayer({
-      id: `endingArrow${index}`,
-      type: "symbol",
-      source: `${index}`,
-      layout: {
-        "symbol-placement": "line",
-        "symbol-spacing": 2,
-        "icon-allow-overlap": true,
-        // 'icon-ignore-placement': true,
-        "icon-image": `${color}`,
-        "icon-size": 0.085,
-        visibility: "visible",
-      },
-      paint: {
-        "icon-opacity": 0.8,
-      },
+      map.loadImage(Arrow6, (err, image) => {
+        if (err) throw err;
+        map.addImage(`${index}`, image);
+
+        map.addLayer({
+          id: `endingArrow${index}`,
+          type: "symbol",
+          source: `${index}`,
+          layout: {
+            "symbol-placement": "point",
+            "icon-allow-overlap": false,
+            "icon-rotate": bearing + -90,
+            "icon-ignore-placement": true,
+            "icon-image": `${color}`,
+            "icon-size": 0.085,
+            visibility: "visible",
+          },
+          paint: {
+            "icon-opacity": 1,
+          },
+        });
+      });
     });
-  });
+  }
 }
 
 export default Map;

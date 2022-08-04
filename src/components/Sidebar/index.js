@@ -32,12 +32,10 @@ export const Sidebar = ({ map }) => {
         } ${placement} ${active ? "active" : ""}`}
       >
         <img src={Logo} className="logo" alt="See the world campaign logo" />
+        <div className="divider"></div>
         <p className="logo-text">
-          Visit 225 different ports in 91 countries all from the U.S. or Canada.
-          Simply drive or take a flight to one of our North America ports, and
-          you can circumnavigate the continents of Africa or Australia, coast
-          through the turquoise waters of Tahiti, or experience outdoor
-          adventures in Alaska and beyond.
+          Visit <span>225 different ports in 91 countries</span> all from the
+          U.S. or Canada.
         </p>
       </div>
       <div id="sidebarControl">

@@ -8,6 +8,11 @@
   src: local("NeutraBold"), url(./fonts/Neutra2Display-Bold.woff) format("woff");
 }
 
+@font-face {
+  font-family: "NeutraBook";
+  src: local("NeutraBook"), url(./fonts/Neutra2Text_book.woff) format("woff");
+}
+
 .InteractiveMapApp {
   overflow: hidden;
   height: 100%;
@@ -25,11 +30,11 @@
   }
 
   * {
-    font-family: NeutraBold !important;
+    font-family: NeutraBold;
   }
 
   b {
-    font-family: NeutraBold !important;
+    font-family: NeutraBold;
   }
 
   h1 {

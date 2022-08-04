@@ -66,9 +66,18 @@ const ShipItem = ({ item, index, selected, setSelected }) => {
         </h2>
         <div className="ship__details">
           <ul>
-            {item.items.map((detail, i) => {
-              return <li key={i}>{detail}</li>;
-            })}
+            {item.items
+              .sort((a, b) => {
+                return a.label < b.label;
+              })
+              .map((detail, i) => {
+                return (
+                  <li key={i}>
+                    <span className="label">{detail.label}</span>
+                    <span className="durations">{detail.text}</span>
+                  </li>
+                );
+              })}
           </ul>
         </div>
         <div

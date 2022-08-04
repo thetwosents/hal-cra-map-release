@@ -11,7 +11,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 function App({ mapboxAccessKey }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [selected, setSelected] = useState(0);
+  const [selected, setSelected] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [data, setData] = useState(ships);
 
@@ -32,7 +32,7 @@ function App({ mapboxAccessKey }) {
     }
   });
 
-  let zoom = 4.5;
+  let zoom = 2.8;
 
   useEffect(() => {
     if (loaded) {
