@@ -50,10 +50,17 @@ function App({ mapboxAccessKey }) {
           zoom: zoom,
         });
       } else {
-        map.current.flyTo({
-          center: [data[selected].lng, data[selected].lat],
-          zoom: zoom,
-        });
+        if (selected) {
+          map.current.flyTo({
+            center: [data[selected].lng, data[selected].lat],
+            zoom: zoom,
+          });
+        } else {
+          map.current.flyTo({
+            center: [-104, 30],
+            zoom: zoom,
+          });
+        }
       }
     } else {
       setLoaded(true);

@@ -65,7 +65,9 @@ export const Map = ({
       addLine(map.current, "points", data, "routes", "#2A7665");
 
       // Add ending arrows
-      addEndingArrows(map.current);
+      setTimeout(() => {
+        addEndingArrows(map.current);
+      }, 2000);
 
       // Add markers
       destinations.map((dest, i) => {
@@ -112,8 +114,10 @@ export const Map = ({
       // If a user clicks the body
       document.body.addEventListener("click", (e) => {
         // The clicked element is not a marker
-        if (!e.target.classList.contains("marker-label-container")) {
-          console.log("No marker clicked");
+        let clicked = e.target.classList.contains("mapboxgl-canvas");
+
+        if (clicked) {
+          setSelected(null);
         }
       });
     });
@@ -331,9 +335,9 @@ const addMarker = (
 
 function addEndingArrows(map) {
   if (data.features.length > 0) {
-    console.log(data.features);
     data.features.forEach((feature, index) => {
       let color = feature.properties.color;
+
       let lastPoint =
         feature.geometry.coordinates[feature.geometry.coordinates.length - 1];
       let secondToLastPoint =
@@ -344,6 +348,19 @@ function addEndingArrows(map) {
         turf.point([secondToLastPoint[0], secondToLastPoint[1]]),
         turf.point([lastPoint[0], lastPoint[1]])
       );
+
+      if (color === "#FEBD5B") {
+        console.log(
+          "color",
+          color,
+          lastPoint,
+          secondToLastPoint,
+          bearing,
+          index
+        );
+      } else {
+        console.log("color", color);
+      }
 
       map.addSource(`${index}`, {
         type: "geojson",
@@ -362,27 +379,22 @@ function addEndingArrows(map) {
         },
       });
 
-      map.loadImage(Arrow6, (err, image) => {
-        if (err) throw err;
-        map.addImage(`${index}`, image);
-
-        map.addLayer({
-          id: `endingArrow${index}`,
-          type: "symbol",
-          source: `${index}`,
-          layout: {
-            "symbol-placement": "point",
-            "icon-allow-overlap": false,
-            "icon-rotate": bearing + -90,
-            "icon-ignore-placement": true,
-            "icon-image": `${color}`,
-            "icon-size": 0.085,
-            visibility: "visible",
-          },
-          paint: {
-            "icon-opacity": 1,
-          },
-        });
+      map.addLayer({
+        id: `endingArrow${index}`,
+        type: "symbol",
+        source: `${index}`,
+        layout: {
+          "symbol-placement": "point",
+          // "icon-allow-overlap": ,
+          "icon-rotate": bearing + -90,
+          // "icon-ignore-placement": true,
+          "icon-image": `${color}`,
+          "icon-size": 0.285,
+          visibility: "visible",
+        },
+        paint: {
+          "icon-opacity": 1,
+        },
       });
     });
   }

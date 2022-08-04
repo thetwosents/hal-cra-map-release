@@ -35,7 +35,7 @@ export const Sidebar = ({ map }) => {
         <div className="divider"></div>
         <p className="logo-text">
           Visit <span>225 different ports in 91 countries</span> all from the
-          U.S. or Canada.
+          U.S. or Canada
         </p>
       </div>
       <div id="sidebarControl">

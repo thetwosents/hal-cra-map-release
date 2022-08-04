@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col } from "antd";
 import { RightCircleOutlined, LeftCircleOutlined } from "@ant-design/icons";
 
@@ -30,6 +30,26 @@ export const Ships = ({ data, selected, setSelected }) => {
 };
 
 const ShipItem = ({ item, index, selected, setSelected }) => {
+  useEffect(() => {
+    if (selected == index) {
+      // get the height of the ship__details ul content for the selected ship
+      const shipDetailsHeight = document.getElementById(
+        `list-${index}`
+      ).offsetHeight;
+
+      // set the active
+      const ship = document.getElementById(`details-${index}`);
+      const title = document.getElementById(`title-${index}`);
+
+      // Set ship height to shipDetailsHeight
+      ship.style.height = `${shipDetailsHeight}px`;
+      title.style.bottom = `${shipDetailsHeight - 10}px`;
+    } else {
+      // set the inactive
+      const ship = document.getElementById(`details-${index}`);
+      ship.style.height = "0px";
+    }
+  }, [selected]);
   return (
     <Col
       className={`grid-item ${selected == index ? "active" : ""}`}
@@ -52,6 +72,7 @@ const ShipItem = ({ item, index, selected, setSelected }) => {
             color: item.textColor,
             padding: "0.5rem",
           }}
+          id={`title-${index}`}
           onClick={() => setSelected(index)}
         >
           <img
@@ -64,8 +85,8 @@ const ShipItem = ({ item, index, selected, setSelected }) => {
           />
           {item.label}
         </h2>
-        <div className="ship__details">
-          <ul>
+        <div id={`details-${index}`} className="ship__details">
+          <ul id={`list-${index}`}>
             {item.items
               .sort((a, b) => {
                 return a.label < b.label;
