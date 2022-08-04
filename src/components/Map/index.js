@@ -383,9 +383,9 @@ function addEndingArrows(map) {
         source: `${index}`,
         layout: {
           "symbol-placement": "point",
-          // "icon-allow-overlap": ,
+          "icon-allow-overlap": true,
           "icon-rotate": bearing + -90,
-          // "icon-ignore-placement": true,
+          "icon-ignore-placement": true,
           "icon-image": `${color}`,
           "icon-size": 0.09,
           visibility: "visible",
