@@ -5,8 +5,8 @@
     .ships {
       position: absolute;
       bottom: 0vh;
-      max-width: 30vw;
-      left: 35vw;
+      max-width: 60vw;
+      left: 20vw;
       top: auto;
       margin: 0px;
       overflow: visible;
@@ -17,8 +17,8 @@
             bottom: auto;
           }
           .ship__details {
-            height: 120px !important;
-            bottom: 60px !important;
+            height: 160px !important;
+            bottom: 20px !important;
             li {
               line-height: 1rem !important;
             }
@@ -31,6 +31,9 @@
               width: 32px;
               height: 32px;
             }
+          }
+          .label {
+            font-size: 12px;
           }
           .ship__details {
             font-size: 10px;
@@ -100,7 +103,7 @@
           position: absolute;
           text-align: left !important;
           @media all and (max-width: 1000px) {
-            bottom: 180px;
+            bottom: 298px;
           }
           img {
             width: 64px;
@@ -185,6 +188,9 @@
           width: 100%;
           transition: 0.1s all ease-in-out;
           -webkit-transition: 0.1s all ease-in-out;
+          @media all and (max-width: 1000px) {
+            height: 280px !important;
+          }
           ul {
             list-style-type: none;
             padding: 0px;
@@ -194,7 +200,7 @@
               columns: 2;
               -webkit-columns: 2;
               -moz-columns: 2;
-              padding-left: 30px;
+              padding-left: 10px;
             }
 
             li {
