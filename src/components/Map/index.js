@@ -65,9 +65,7 @@ export const Map = ({
       addLine(map.current, "points", data, "routes", "#2A7665");
 
       // Add ending arrows
-      setTimeout(() => {
-        addEndingArrows(map.current);
-      }, 2000);
+      addEndingArrows(map.current);
 
       // Add markers
       destinations.map((dest, i) => {
@@ -349,18 +347,18 @@ function addEndingArrows(map) {
         turf.point([lastPoint[0], lastPoint[1]])
       );
 
-      if (color === "#FEBD5B") {
-        console.log(
-          "color",
-          color,
-          lastPoint,
-          secondToLastPoint,
-          bearing,
-          index
-        );
-      } else {
-        console.log("color", color);
-      }
+      // if (color === "#FEBD5B") {
+      //   console.log(
+      //     "color",
+      //     color,
+      //     lastPoint,
+      //     secondToLastPoint,
+      //     bearing,
+      //     index
+      //   );
+      // } else {
+      //   console.log("color", color);
+      // }
 
       map.addSource(`${index}`, {
         type: "geojson",
@@ -389,7 +387,7 @@ function addEndingArrows(map) {
           "icon-rotate": bearing + -90,
           // "icon-ignore-placement": true,
           "icon-image": `${color}`,
-          "icon-size": 0.285,
+          "icon-size": 0.09,
           visibility: "visible",
         },
         paint: {
