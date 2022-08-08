@@ -332,6 +332,44 @@ const addMarker = (
 };
 
 function addEndingArrows(map) {
+  map.addSource(`japan`, {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: [-219.3158839706549, 35.50273086506107],
+          },
+        },
+      ],
+    },
+  });
+
+  map.loadImage(Arrow4, (err, image) => {
+    if (err) throw err;
+    map.addLayer({
+      id: `endingArrowjapan`,
+      type: "symbol",
+      source: `japan`,
+      layout: {
+        "symbol-placement": "point",
+        "icon-allow-overlap": true,
+        "icon-rotate": 170,
+        "icon-ignore-placement": true,
+        "icon-image": `#FEBD5B`,
+        "icon-size": 0.09,
+        visibility: "visible",
+      },
+      paint: {
+        "icon-opacity": 1,
+      },
+    });
+  });
+
   if (data.features.length > 0) {
     data.features.forEach((feature, index) => {
       let color = feature.properties.color;
@@ -347,18 +385,18 @@ function addEndingArrows(map) {
         turf.point([lastPoint[0], lastPoint[1]])
       );
 
-      // if (color === "#FEBD5B") {
-      //   console.log(
-      //     "color",
-      //     color,
-      //     lastPoint,
-      //     secondToLastPoint,
-      //     bearing,
-      //     index
-      //   );
-      // } else {
-      //   console.log("color", color);
-      // }
+      if (color === "#FEBD5B") {
+        console.log(
+          "color",
+          color,
+          lastPoint,
+          secondToLastPoint,
+          bearing,
+          index
+        );
+      } else {
+        console.log("color", color);
+      }
 
       map.addSource(`${index}`, {
         type: "geojson",
