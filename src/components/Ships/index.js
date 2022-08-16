@@ -41,9 +41,16 @@ const ShipItem = ({ item, index, selected, setSelected }) => {
       const ship = document.getElementById(`details-${index}`);
       const title = document.getElementById(`title-${index}`);
 
-      // Set ship height to shipDetailsHeight
-      ship.style.height = `${shipDetailsHeight}px`;
-      title.style.bottom = `${shipDetailsHeight - 10}px`;
+      // Check if the browser window is less than 768px
+      if (window.innerWidth < 1000) {
+        // Set ship height to shipDetailsHeight
+        ship.style.height = `${shipDetailsHeight + 60}px`;
+        title.style.bottom = `${shipDetailsHeight + 80}px`;
+      } else {
+        // Set ship height to shipDetailsHeight
+        ship.style.height = `${shipDetailsHeight}px`;
+        title.style.bottom = `${shipDetailsHeight - 10}px`;
+      }
     } else {
       // set the inactive
       const ship = document.getElementById(`details-${index}`);
