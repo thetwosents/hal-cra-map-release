@@ -32,7 +32,7 @@ export const Sidebar = ({ map }) => {
       >
         <img
           src={
-            "https://hal-cra-map-release.vercel.app/static/media/logo.ed45e7d8d0349e09a449be4e4a623223.svg"
+            "https://hal-cra-map-release-8nxw71th5-thetwosents.vercel.app/static/media/logo.ed45e7d8d0349e09a449be4e4a623223.svg"
           }
           className="logo"
           alt="See the world campaign logo"
