@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Logo from "./logo.svg";
 import { Row, Col } from "antd";
 
 export const Sidebar = ({ map }) => {
@@ -31,7 +30,13 @@ export const Sidebar = ({ map }) => {
           isZoomed ? "is-zoomed" : ""
         } ${placement} ${active ? "active" : ""}`}
       >
-        <img src={Logo} className="logo" alt="See the world campaign logo" />
+        <img
+          src={
+            "https://hal-cra-map-release.vercel.app/static/media/logo.ed45e7d8d0349e09a449be4e4a623223.svg"
+          }
+          className="logo"
+          alt="See the world campaign logo"
+        />
         <div className="divider"></div>
         <p className="logo-text">
           Visit <span>225 different ports in 91 countries</span> all from the

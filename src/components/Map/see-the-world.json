@@ -6888,7 +6888,7 @@
     {
       "type": "Feature",
       "properties": {
-        "color": "#FF7F32"
+        "color": "#B8CCEA"
       },
       "geometry": {
         "type": "LineString",
@@ -22727,7 +22727,7 @@
     {
       "type": "Feature",
       "properties": {
-        "color": "#B8CCEA"
+        "color": "#FF7F32"
       },
       "geometry": {
         "type": "LineString",

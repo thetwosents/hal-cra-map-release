@@ -5,12 +5,16 @@
 
 @font-face {
   font-family: "NeutraBold";
-  src: local("NeutraBold"), url(./fonts/Neutra2Display-Bold.woff) format("woff");
+  src: local("NeutraBold"),
+    url(https://hal-cra-map-release.vercel.app/static/media/Neutra2Display-Bold.c909960b1f9400c514dc.woff)
+      format("woff");
 }
 
 @font-face {
   font-family: "NeutraBook";
-  src: local("NeutraBook"), url(./fonts/Neutra2Text_book.woff) format("woff");
+  src: local("NeutraBook"),
+    url(https://hal-cra-map-release.vercel.app/static/media/Neutra2Text_book.a6677be64da65df0d77b.woff)
+      format("woff");
 }
 
 .InteractiveMapApp {
